@@ -1,0 +1,34 @@
+import random
+
+# Welcome message
+print("\t\tWelcome!")
+print("You have 5 attempts to guess the word using the length of the word\n")
+WORDS = ("Word", "Code", "Python", "Program", "Git")
+word = random.choice(WORDS)
+correct = word
+tries = 1
+hint = word[0]
+
+# Tell the player the length of the word
+print("\t\tLength of the word: ", len(word),"\n")
+guess = input("Guess the word: ")
+
+
+while guess.lower() != correct.lower() and guess != "" and tries <= 5:
+    print("No!")
+    tries += 1
+    if tries == 3:
+        response = input("Hint? y:yes or n:no ")
+        if response.lower() == "y":
+            print("The first letter of the word is: ", hint)
+    print("\nTries remaining: ", 6-tries)
+    guess = input("Guess the word: ")
+    
+# Tell the player they was right or ran out of tries
+if guess.lower() == correct.lower():
+    print("\nCongratulations! The word was: ", correct)
+    print("You guessed it in ", tries)
+else:
+    print("\nNo! You ran out of tries! Better Luck next time")
+    
+input("\n\nPress the Enter key to exit.")
